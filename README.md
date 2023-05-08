@@ -2,7 +2,6 @@
 ## ポイント
 - ネットワーク構造をsparseではなく、**Dense(密)** で表現する。パラメータを削減し、深いネットワーク構造を実現
 - 密なネットワーク構造を実現するために、**Inception module** によって、相関のあるニューロンをまとめる
-- Au
 - 最終層の特徴量マップを各チャンネル毎に平均をとっている **(Global Avarage Pooling)** 。全結合層のパラメータ削減と過学習抑制を行っている。
 ## Inception module
 <img alt="Inception Module" src="./image/Inception_module_v2.png"></img>

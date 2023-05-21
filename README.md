@@ -33,8 +33,14 @@
 2. https://www.youtube.com/watch?v=p-SflGf3m2Y
 3. https://ai-kenkyujo.com/artificial-intelligence/ai-architecture-02/
 4. https://iwiwi.hatenadiary.jp/entry/2016/12/31/162059　(データオーギュメンテーションまとめ)
+5. https://cvml-expertguide.net/terms/dl/regularization/label-smoothing/#1_%E3%83%A9%E3%83%99%E3%83%AB%E5%B9%B3%E6%BB%91%E5%8C%96_Label_Smoothing_%E3%81%A8%E3%81%AF_%E6%A6%82%E8%A6%81（ラベル平滑化まとめサイト）
 ## ※ラベル平滑化
 - クラス分類損失に対する正則化手法の１つである
 - ラベル平滑化では，one-hot符号化されたハードなラベルの代わりに，ノイズを加えたソフトなラベルで学習する
 - これにより学習のターゲットであるハードラベルへの過学習を防ぐことができる
 - $y^{Loss}_K = (1-ε)y_K＋ε\frac{1}{K}$
+- $\sum_{K=1}^{K}y^{Loss}_K=1$に注意。ε:(0,1)でハイパーパラメータ 
+<img alt="Label smoothing" src="./image/label_smoothing.png"></img>
+- 近年のCNN学習では，**データ拡張とラベル平滑化は併用することが多い**
+- **ノイジーラベル(Noisy Labels)への対抗手段の１つとしても，ラベル平滑化がよく用いられる**
+- まとめると,ラベル平滑化は**クラス識別CNNのsoftmax出力の分布をなめらかにさせる正則化項である**。RNN，RNNLM, seq2seq with attention, Transformerなど，「クラス識別と系列ラベリング問題」の教師ありDNNの学習において，**正則化目的で広く用いられている**
